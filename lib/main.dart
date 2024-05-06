@@ -1,14 +1,24 @@
 import 'package:bloc/bloc.dart';
-import 'package:delivr/app.dart';
+import 'package:delivr/screens/login_screen.dart';
 import 'package:delivr/simple_bloc_observer.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:user_repository/user_repository.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
   Bloc.observer = SimpleBlocObserver();
 
-  runApp(MyApp(userRepository: FirebaseUserRepo()));
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget{
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Delivr',
+      debugShowCheckedModeBanner: false,
+      home: LoginScreen()
+    );
+  }
 }
