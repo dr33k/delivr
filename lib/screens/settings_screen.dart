@@ -9,7 +9,11 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text("Settings"), backgroundColor: Theme.of(context).colorScheme.background,),
+        appBar: AppBar(
+            title: const Text("Settings"),
+            backgroundColor: Theme.of(context).colorScheme.background,
+            foregroundColor: Theme.of(context).colorScheme.inversePrimary
+        ),
         backgroundColor: Theme.of(context).colorScheme.background,
         body: Column(
           children: [
@@ -29,8 +33,8 @@ class SettingsScreen extends StatelessWidget {
                       color: Theme.of(context).colorScheme.inversePrimary
                     )),
 
-                    CupertinoSwitch(value: Provider.of<ThemeProvider>(context, listen: false).isDark,
-                        onChanged: (value) => Provider.of<ThemeProvider>(context, listen: false).toggleTheme,
+                    Switch(value: Provider.of<ThemeProvider>(context, listen: false).isDark,
+                        onChanged: (value) => Provider.of<ThemeProvider>(context, listen: false).toggleTheme(),
                     )
                   ],
                 ),
