@@ -56,7 +56,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
 
     return Scaffold(
       drawer: AppDrawer(),
-
       body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled)=>
         [
