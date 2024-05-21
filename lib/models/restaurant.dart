@@ -6,7 +6,7 @@ class Restaurant extends ChangeNotifier{
     Food(
       name: 'Classic Cheeseburger',
       description: 'A juicy beef patty with melted cheddar, lettuce tomatoes , onions and pickles',
-      imagePath: 'lib/images/burgers/b1.jpeg',
+      imagePath: 'lib/images/burgers/b4.jpg',
       price: 4.99,
       category: FoodCategory.burgers,
       availableAddons: [
@@ -29,7 +29,7 @@ class Restaurant extends ChangeNotifier{
     Food(
       name: 'Krabby Patty',
       description: 'A burger composing of ham, onions and pickles. Topped with soft fresh bread and ordered with a side of drinks',
-      imagePath: 'lib/images/burgers/b3.jpeg',
+      imagePath: 'lib/images/burgers/b3.jpg',
       price: 1.99,
       category: FoodCategory.burgers,
       availableAddons: [
@@ -39,7 +39,7 @@ class Restaurant extends ChangeNotifier{
     Food(
       name: 'Beef Burger',
       description: 'Exquisite burger with spicy beef as the main ingredient.'+'Hot steamy meat dripping with sauce',
-      imagePath: 'lib/images/burgers/b4.jpeg',
+      imagePath: 'lib/images/burgers/b4.jpg',
       price: 4.99,
       category: FoodCategory.burgers,
       availableAddons: [
@@ -49,7 +49,7 @@ class Restaurant extends ChangeNotifier{
     Food(
       name: 'Krabby Patty Deluxe',
       description: 'A juicy chicken patty with melted cheddar, lettuce tomatoes , onions and pickles',
-      imagePath: 'lib/images/burgers/b1.jpeg',
+      imagePath: 'lib/images/burgers/b5.png',
       price: 4.99,
       category: FoodCategory.burgers,
       availableAddons: [
@@ -204,7 +204,7 @@ class Restaurant extends ChangeNotifier{
     Food(
         name: 'Southwest Salad',
         description: 'E Fresh mix of greens, veggies, and tangy dressing.',
-        imagePath: 'lib/images/salads/s5.jpg',
+        imagePath: 'lib/images/salads/s5.png',
         price: 6.99,
         category: FoodCategory.salads,
         availableAddons: []
@@ -256,7 +256,7 @@ class Restaurant extends ChangeNotifier{
     Food(
         name: 'Lasagna',
         description: 'Layered pasta, meat sauce, and melted cheese, a classic Italian comfort food.',
-        imagePath: 'lib/images/sides/m5.jpg',
+        imagePath: 'lib/images/sides/m5.png',
         price: 9.99,
         category: FoodCategory.sides,
         availableAddons: [

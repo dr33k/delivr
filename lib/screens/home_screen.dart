@@ -3,6 +3,7 @@ import 'dart:core';
 import 'package:delivr/components/app_current_location.dart';
 import 'package:delivr/components/app_delivery.dart';
 import 'package:delivr/components/app_drawer.dart';
+import 'package:delivr/components/app_food_tile.dart';
 import 'package:delivr/components/app_sliver_app_bar.dart';
 import 'package:delivr/components/app_tab_bar.dart';
 import 'package:delivr/models/food.dart';
@@ -45,9 +46,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           physics: const NeverScrollableScrollPhysics(),
           padding: EdgeInsets.zero,
           itemBuilder: (context, index){
-        return ListTile(
-          title: Text(categories[index].name),
-        );
+        return AppFoodTile(food: categories[index], onTap: (){});
       });
     }).toList();
   }
