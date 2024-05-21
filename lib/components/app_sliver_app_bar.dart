@@ -15,7 +15,7 @@ class AppSliverAppBar extends StatelessWidget {
     return SliverAppBar(
       backgroundColor:Theme.of(context).colorScheme.background,
       foregroundColor:Theme.of(context).colorScheme.inversePrimary,
-      title: const Text('Mae\'s Delight'),
+      title: const Text('The Krusty Krab'),
       flexibleSpace: FlexibleSpaceBar(
           background: Padding(
             padding: const EdgeInsets.only(bottom: 20.0),

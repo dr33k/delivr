@@ -1,9 +1,12 @@
+import 'dart:core';
+
 import 'package:delivr/components/app_current_location.dart';
 import 'package:delivr/components/app_delivery.dart';
 import 'package:delivr/components/app_drawer.dart';
 import 'package:delivr/components/app_sliver_app_bar.dart';
 import 'package:delivr/components/app_tab_bar.dart';
-import 'package:delivr/themes/theme_provider.dart';
+import 'package:delivr/models/food.dart';
+import 'package:delivr/models/restaurant.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -21,12 +24,32 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   @override
   void initState(){
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: FoodCategory.values.length, vsync: this);
   }
   @override
   void dispose(){
     _tabController.dispose();
     super.dispose();
+  }
+
+  List<Food> _filterMenuByCategory(FoodCategory category, List<Food> fullMenu){
+    return fullMenu.where((element) => element.category == category).toList();
+  }
+
+  List<Widget> _sortFood(List<Food> fullMenu){
+    return FoodCategory.values.map((category) {
+      List<Food> categories = _filterMenuByCategory(category, fullMenu);
+
+      return ListView.builder(
+          itemCount: categories.length,
+          physics: const NeverScrollableScrollPhysics(),
+          padding: EdgeInsets.zero,
+          itemBuilder: (context, index){
+        return ListTile(
+          title: Text(categories[index].name),
+        );
+      });
+    }).toList();
   }
 
   @override
@@ -55,23 +78,12 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                 Delivery()
               ],
             ))],
-        body: TabBarView(
-          controller: _tabController,
-          children: [
-            ListView.builder(
-                itemCount: 5,
-                itemBuilder: (context, index)=> Text('Tab first items')
-            ),ListView.builder(
-                itemCount: 5,
-                itemBuilder: (context, index)=> Text('Tab second items')
-            ),ListView.builder(
-                itemCount: 5,
-                itemBuilder: (context, index)=> Text('Tab last items')
-            ),
-
-
-          ],
-        ),
+        body: Consumer<Restaurant>(
+          builder: (context, restaurant, child) => TabBarView(
+              controller: _tabController,
+              children: _sortFood(restaurant.menu)
+          ),
+        )
       ),
     );
   }

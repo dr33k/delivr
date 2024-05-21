@@ -1,6 +1,7 @@
 import 'package:delivr/models/food.dart';
+import 'package:flutter/cupertino.dart';
 
-class Restaurant{
+class Restaurant extends ChangeNotifier{
   final List<Food> menu = [
     Food(
       name: 'Classic Cheeseburger',
@@ -26,7 +27,7 @@ class Restaurant{
       ]
     ),
     Food(
-      name: 'Hamburger',
+      name: 'Krabby Patty',
       description: 'A burger composing of ham, onions and pickles. Topped with soft fresh bread and ordered with a side of drinks',
       imagePath: 'lib/images/burgers/b3.jpeg',
       price: 1.99,
@@ -46,7 +47,7 @@ class Restaurant{
       ]
     ),
     Food(
-      name: 'Chicken Burger',
+      name: 'Krabby Patty Deluxe',
       description: 'A juicy chicken patty with melted cheddar, lettuce tomatoes , onions and pickles',
       imagePath: 'lib/images/burgers/b1.jpeg',
       price: 4.99,
@@ -169,7 +170,7 @@ class Restaurant{
 
     //salads
     Food(
-        name: 'A Salad',
+        name: 'Caesar Salad',
         description: 'A Fresh mix of greens, veggies, and tangy dressing.',
         imagePath: 'lib/images/salads/s1.jpg',
         price: 4.99,
@@ -177,7 +178,7 @@ class Restaurant{
         availableAddons: []
     ),
     Food(
-        name: 'B Salad',
+        name: 'Greek Salad',
         description: 'B Fresh mix of greens, veggies, and tangy dressing.',
         imagePath: 'lib/images/salads/s2.jpg',
         price: 2.99,
@@ -185,7 +186,7 @@ class Restaurant{
         availableAddons: []
     ),
     Food(
-        name: 'C Salad',
+        name: 'Quinola Salad',
         description: 'C Fresh mix of greens, veggies, and tangy dressing.',
         imagePath: 'lib/images/salads/s3.jpg',
         price: 5.99,
@@ -193,7 +194,7 @@ class Restaurant{
         availableAddons: []
     ),
     Food(
-        name: 'D Salad',
+        name: 'Asian Sesame Salad',
         description: 'D Fresh mix of greens, veggies, and tangy dressing.',
         imagePath: 'lib/images/salads/s4.jpg',
         price: 3.99,
@@ -201,7 +202,7 @@ class Restaurant{
         availableAddons: []
     ),
     Food(
-        name: 'E Salad',
+        name: 'Southwest Salad',
         description: 'E Fresh mix of greens, veggies, and tangy dressing.',
         imagePath: 'lib/images/salads/s5.jpg',
         price: 6.99,
