@@ -8,6 +8,7 @@ import 'package:delivr/components/app_sliver_app_bar.dart';
 import 'package:delivr/components/app_tab_bar.dart';
 import 'package:delivr/models/food.dart';
 import 'package:delivr/models/restaurant.dart';
+import 'package:delivr/screens/food_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -46,7 +47,14 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           physics: const NeverScrollableScrollPhysics(),
           padding: EdgeInsets.zero,
           itemBuilder: (context, index){
-        return AppFoodTile(food: categories[index], onTap: (){});
+            final food = categories[index];
+
+            return AppFoodTile(
+          food: food,
+          onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=> FoodScreen(food:food)
+          )
+          ),
+        );
       });
     }).toList();
   }

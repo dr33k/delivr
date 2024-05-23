@@ -146,6 +146,7 @@ class Restaurant extends ChangeNotifier{
           Addon(name: 'Chocolate', price: 5),
           Addon(name: 'Strawberry', price: 5),
           Addon(name: 'Banana', price: 5),
+          Addon(name: 'Rocky Road', price: 5),
         ]
     ),
     Food(

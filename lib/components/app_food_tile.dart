@@ -33,11 +33,12 @@ class AppFoodTile extends StatelessWidget {
                       children: [
                         Text(food.name, style: TextStyle(color: Theme.of(context).colorScheme.inversePrimary, fontWeight: FontWeight.bold),),
                         Text('N ${food.price}', style: TextStyle(color: Theme.of(context).colorScheme.primary),),
-                        SizedBox(height: 10,),
+                        const SizedBox(height: 10,),
                         Text(food.description,  style: TextStyle(color: Theme.of(context).colorScheme.inversePrimary))
                       ],
                     ),
                   ),
+                  const SizedBox(width: 15,),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(8),
                       child: Image.asset(food.imagePath, height: 120, width: 120,fit: BoxFit.fill)
@@ -46,7 +47,7 @@ class AppFoodTile extends StatelessWidget {
               ),
               ),
             ),
-          Divider(color: Theme.of(context).colorScheme.primary,)
+          Divider(color: Theme.of(context).colorScheme.tertiary,)
         ],
     );
   }
