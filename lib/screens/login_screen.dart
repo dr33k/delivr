@@ -41,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(height: 25),
             //message,slogan
             Text(
-              "Food Delivery App",
+              "Krusty Krab",
               style: TextStyle(
                   fontSize: 16,
                   color: Theme.of(context).colorScheme.inversePrimary),

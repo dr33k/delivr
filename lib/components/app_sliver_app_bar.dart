@@ -1,3 +1,4 @@
+import 'package:delivr/screens/cart_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -32,7 +33,9 @@ class AppSliverAppBar extends StatelessWidget {
       floating: false,
 
       actions: [
-        IconButton(onPressed: (){},
+        IconButton(onPressed: ()=> Navigator.push(context,
+            MaterialPageRoute(builder: (context)=>const CartScreen())
+        ),
             icon: const Icon(Icons.shopping_cart))
       ]
     );

@@ -1,3 +1,5 @@
+import 'package:collection/collection.dart';
+import 'package:delivr/models/cart_item.dart';
 import 'package:delivr/models/food.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -271,5 +273,49 @@ class Restaurant extends ChangeNotifier{
 
 // Operations
 
-//Helpers
+final List<CartItem> _cart = [];
+List<CartItem> get cart => _cart;
+
+void addToCart(Food food, List<Addon> selectedAddons){
+  CartItem? cartItem = _cart.firstWhereOrNull((cartItem){
+    bool isSameFood = cartItem.food == food;
+    bool isSameAddons = const ListEquality().equals(cartItem.selectedAddons, selectedAddons);
+    return isSameAddons && isSameFood;
+  });
+
+  if(cartItem != null){
+    cartItem.quantity++;
+  }
+  else{
+    _cart.add(CartItem(food: food, selectedAddons: selectedAddons));
+  }
+notifyListeners();
+}
+
+void removeFromCart(CartItem cartItem){
+  int index = _cart.indexOf(cartItem);
+
+  if(index != -1){
+    if(index > 1){
+      _cart[index].quantity--;
+    }
+    else {
+      _cart.removeAt(index);
+    }
+  }
+  notifyListeners();
+}
+
+double getTotalPrice(){
+  return _cart.fold(0, (total, cartItem) => total + cartItem.totalPrice);
+}
+
+int getItemCount(){
+  return _cart.fold(0, (previousValue, cartItem) => previousValue + cartItem.quantity);
+}
+
+void clearCart(){
+  _cart.clear();
+  notifyListeners();
+}
 }
