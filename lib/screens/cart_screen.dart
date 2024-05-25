@@ -1,8 +1,10 @@
+import 'package:delivr/components/app_button.dart';
 import 'package:delivr/components/app_cart_tile.dart';
 import 'package:delivr/models/cart_item.dart';
 import 'package:delivr/models/restaurant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
 class CartScreen extends StatelessWidget {
@@ -18,13 +20,62 @@ class CartScreen extends StatelessWidget {
           title: const Text("Cart"),
           backgroundColor: Colors.transparent,
           foregroundColor: Theme.of(context).colorScheme.inversePrimary,
+          actions: [
+            IconButton(
+                onPressed: (){
+                  showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    title: Text("Are you sure you want to clear the cart ?",  style: TextStyle(color: Theme.of(context).colorScheme.inversePrimary),),
+                    actions: [
+                      TextButton(
+                          onPressed: ()=> Navigator.pop(context),
+                          child: Text("Cancel", style: TextStyle(color: Theme.of(context).colorScheme.inversePrimary),),
+                      ),
+                      TextButton(
+                          onPressed: (){
+                            restaurant.clearCart();
+                            Navigator.pop(context);
+                          },
+                          child: Text("Yes",  style: TextStyle(color: Theme.of(context).colorScheme.inversePrimary),),
+                      )
+                    ],
+                  )
+                );},
+                icon: const Icon(Icons.delete))
+          ],
         ),
           body: Column(
             children: [
-              Expanded(child: ListView.builder(
-                  itemCount: cart.length,
-                  itemBuilder: (context, index)=> AppCartTile(cartItem: cart[index])
-              ))
+
+              //Cart List
+              Expanded(
+                child: Column(
+                  children: [
+                    cart.isEmpty?
+                        Expanded(
+                          child: Center(
+                              child: Text("There's nothing here ...",
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    color: Theme.of(context).colorScheme.primary),
+                              )
+                          ),
+                        ):
+                    Expanded(child: ListView.builder(
+                        itemCount: cart.length,
+                        itemBuilder: (context, index)=> AppCartTile(cartItem: cart[index])
+                    ))
+                  ],
+                ),
+              ),
+
+              //Pay button
+              AppButton(
+                  onTap: (){},
+                  text: "Checkout"),
+
+              const SizedBox(height: 25),
             ],
           )
       );
