@@ -296,8 +296,9 @@ void removeFromCart(CartItem cartItem){
   int index = _cart.indexOf(cartItem);
 
   if(index != -1){
-    if(index > 1){
-      _cart[index].quantity--;
+    CartItem cartItem = _cart[index];
+    if(cartItem.quantity > 1){
+      cartItem.quantity--;
     }
     else {
       _cart.removeAt(index);
