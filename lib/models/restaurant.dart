@@ -2,6 +2,7 @@ import 'package:collection/collection.dart';
 import 'package:delivr/models/cart_item.dart';
 import 'package:delivr/models/food.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:intl/intl.dart';
 
 class Restaurant extends ChangeNotifier{
   final List<Food> menu = [
@@ -269,7 +270,6 @@ class Restaurant extends ChangeNotifier{
     ),
   ];
 
-  //Getters
 
 // Operations
 
@@ -318,5 +318,42 @@ int getItemCount(){
 void clearCart(){
   _cart.clear();
   notifyListeners();
+}
+
+//Helpers
+
+String _formatPrice(double price){
+  return "N${price.toStringAsFixed(2)}";
+}
+
+String _formatAddons(List<Addon> addons){
+  return addons.map((e) => "${e.name} (${_formatPrice(e.price)})").join(", ");
+}
+
+String displayCardReceipt(){
+  final receipt = StringBuffer();
+  receipt.writeln("Here's your receipt.");
+  receipt.writeln();
+
+  //FOrmat the date to include seconds only
+  String dateFormatted = DateFormat("yyyy-MM-dd HH:mm:ss").format(DateTime.now());
+  receipt.writeln(dateFormatted);
+  receipt.writeln();
+  receipt.writeln("______________________________________");
+
+  _cart.forEach((element) {
+    receipt.writeln("${element.quantity} X ${element.food.name} -- ${_formatPrice(element.food.price)}"    );
+  if(element.selectedAddons.isNotEmpty){
+    receipt.writeln(" Addons: ${_formatAddons(element.selectedAddons)}");
+  }
+  receipt.writeln();
+  });
+
+  receipt.writeln("________________________________________");
+  receipt.writeln();
+  receipt.writeln("Total items: ${getItemCount()}");
+  receipt.writeln("Total price: ${_formatPrice(getTotalPrice())}");
+
+  return receipt.toString();
 }
 }
