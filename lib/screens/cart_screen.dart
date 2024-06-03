@@ -3,9 +3,7 @@ import 'package:delivr/components/app_cart_tile.dart';
 import 'package:delivr/models/cart_item.dart';
 import 'package:delivr/models/restaurant.dart';
 import 'package:delivr/screens/payment_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
 class CartScreen extends StatelessWidget {
@@ -74,7 +72,7 @@ class CartScreen extends StatelessWidget {
               //Pay button
               AppButton(
                   onTap: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> PaymentScreen())),
-                  text: "Checkout (N${restaurant.getTotalPrice()})"),
+                  text: "Checkout (N${restaurant.getTotalPrice().toStringAsFixed(2)})"),
 
               const SizedBox(height: 25),
             ],
