@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS favorite(
+user_id UUID NOT NULL REFERENCES app_user(id) ON DELETE CASCADE,
+product_id BIGINT NOT NULL REFERENCES product(id) ON DELETE CASCADE,
+PRIMARY KEY(user_id, product_id)
+);

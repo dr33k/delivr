@@ -1,0 +1,1 @@
+ALTER TABLE customer_order ADD COLUMN is_paid BOOL NOT NULL DEFAULT FALSE;

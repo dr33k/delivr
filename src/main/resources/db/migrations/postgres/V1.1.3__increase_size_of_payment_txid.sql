@@ -1,0 +1,1 @@
+ALTER TABLE payment ALTER COLUMN payment_processor_tx_id SET DATA TYPE INTEGER;

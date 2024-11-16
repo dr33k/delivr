@@ -1,0 +1,1 @@
+ALTER TABLE vendor_order DROP COLUMN app_user_location_id;

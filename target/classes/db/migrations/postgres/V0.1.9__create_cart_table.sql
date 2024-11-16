@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS customer_cart_item(
+user_id UUID NOT NULL REFERENCES app_user(id) ON DELETE CASCADE,
+product_id BIGINT NOT NULL REFERENCES product(id) ON DELETE CASCADE,
+units SMALLINT NOT NULL DEFAULT 1,
+PRIMARY KEY(user_id, product_id)
+)

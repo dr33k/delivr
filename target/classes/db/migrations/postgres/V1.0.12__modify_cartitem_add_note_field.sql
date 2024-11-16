@@ -1,0 +1,1 @@
+ALTER TABLE customer_cart_item ADD COLUMN note TEXT NOT NULL DEFAULT '';

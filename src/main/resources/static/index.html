@@ -1,0 +1,53 @@
+<head xmlns="http://www.w3.org/1999/html">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.6.1/sockjs.js" integrity="sha512-aHuAnb+FZ/yM5zYvdiA8q0sxLdsBQ3PRwO8D/08qsenCLQ2gWsosB43Cn1X8esAz0IpaC7Ns5cAPyKIdJQ0hNw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.js" integrity="sha512-tL4PIUsPy+Rks1go4kQG8M8/ItpRMvKnbBjQm4d2DQnFwgcBYRRN00QdyQnWSCwNMsoY/MfJY8nHp2CzlNdtZA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript">
+    var stompClient=null
+    var privateStompClient=null
+
+    var socket = new SockJS("/stomp");
+    stompClient = Stomp.over(socket);
+    stompClient.connect(headers={"login":"mikole76+76@gmail.com","passcode":"string","XRSF-TOKEN":"6c2d988a-0611-4610-b85b-6bad2283a9f2"},
+     function(frame){
+        console.log(frame);
+        stompClient.subscribe("/topic/new_orders/18007b7a-0989-4b9f-bd2f-777718daa226", function(result){
+        console.log(JSON.parse(result.body));
+        });
+    });
+
+    socket = new SockJS("/stomp");
+    privateStompClient = Stomp.over(socket);
+    privateStompClient.connect(headers={"login":"sevenpointzerozero@gmail.com","passcode":"string","XRSF-TOKEN":"6c2d988a-0611-4610-b85b-6bad2283a9f2"},
+     function(frame){
+        console.log(frame);
+        privateStompClient.subscribe("/user/queue/notifications", function(result){
+        console.log(JSON.parse(result.body));
+        });
+    });
+
+    function sendMessage(){
+    var text = "Lorem Ipsum Dolor Text";
+    stompClient.send("/api/test_public", {},
+    JSON.stringify({"id":"18007b7a-0989-4b9f-bd2f-777718daa226", "text":text})
+    )
+    }
+
+    function sendPrivateMessage(){
+    var text = "Private Lorem Ipsum Dolor Text";
+    privateStompClient.send("/api/test_private", {},
+    JSON.stringify({"username":"mikole76@gmail.com", "text":text})
+    )
+    }
+
+</script>
+</head>
+<body>
+
+<div>
+    <div><button onclick="sendMessage()">Send Public</button></div>
+</div>
+</br>
+<div>
+    <div><button onclick="sendPrivateMessage()">Send Private</button></div>
+</div>
+</body>

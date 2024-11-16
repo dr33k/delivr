@@ -1,0 +1,1 @@
+ALTER TABLE product ALTER COLUMN is_published SET DEFAULT TRUE;

@@ -1,0 +1,1 @@
+ALTER TABLE payment DROP COLUMN vendor_account_id;

@@ -1,0 +1,1 @@
+web: java -jar target/delivr-api-0.0.1-SNAPSHOT.jar

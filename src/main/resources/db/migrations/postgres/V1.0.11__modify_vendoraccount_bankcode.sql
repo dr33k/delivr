@@ -1,0 +1,1 @@
+ALTER TABLE vendor_account ALTER COLUMN bank_code SET DATA TYPE VARCHAR(6);

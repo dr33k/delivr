@@ -1,0 +1,15 @@
+ALTER TABLE app_user
+ADD COLUMN vendor_id INTEGER,
+ADD CONSTRAINT app_user_vendor_id_fk
+FOREIGN KEY(vendor_id)
+REFERENCES vendor(id)
+ON DELETE SET NULL;
+
+
+ALTER TABLE product
+ADD COLUMN vendor_id INTEGER NOT NULL,
+ADD COLUMN currency CHAR(3) NOT NULL DEFAULT 'NGN',
+ADD CONSTRAINT product_vendor_id_fk
+FOREIGN KEY(vendor_id)
+REFERENCES vendor(id)
+ON DELETE CASCADE;
