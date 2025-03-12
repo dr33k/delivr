@@ -47,7 +47,7 @@ jobs:
         aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
         aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
         region: ${{ vars.AWS_REGION }}
-        application_name: rooks-api
+        application_name: delivr-api
         environment_name: ${{ github.ref == 'refs/heads/prod' && 'prod' || 'develop' }}
         version_label: ${{ steps.current-time.outputs.formattedTime }}
         deployment_package: deploy.zip
