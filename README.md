@@ -20,7 +20,7 @@ or run with the java cli
 
     java -jar target/delivr-api-1.0-SNAPSHOT.jar
 
-ENV variables required to build successfully are:
+ENV variables required to build and run successfully are:
 * DB_USER
 * DB_PASSWORD
 * DB_URL
