@@ -28,7 +28,7 @@ ENV variables required to run are:
 * DB_URL
 * JWT_SIGNING_KEY: A 256 bit string
 * API_DOMAIN: This API's domain name
-* MAUL_USERNAME: An SMTP username for mail dispatch
+* MAIL_USERNAME: An SMTP username for mail dispatch
 * MAIL_PASSWORD: Password for the SMTP username
 * AWS_ACCESS_KEY_ID
 * AWS_SECRET_ACCESS_KEY
