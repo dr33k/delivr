@@ -38,4 +38,4 @@ ENV variables required to run are:
 * TWILIO_TOKEN
 * TWILIO_FROM: The Sender's phone number
 
-Then Visit: http://localhost:8080/swagger-ui.html
+Then Visit: http://localhost:8000/swagger-ui.html
