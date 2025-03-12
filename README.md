@@ -1,5 +1,5 @@
 ## Delivr
-#### Logistics API built with Spring Boot. 
+#### Logistics microservice built with Spring Boot. 
 Scope: Food Delivery, Email Notification, Vendor Validation, JWT Authentication, Payment Processing, AWS EC2, AWS S3
 
 Authentication: JWT
