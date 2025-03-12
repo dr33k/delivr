@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.UUID;
-@RestController
+//@RestController
 @RequestMapping(Constants.VERSION+"/rider")
 @SecurityRequirement(name = "jwtAuth")
 public class RiderController {

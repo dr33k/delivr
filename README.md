@@ -20,22 +20,33 @@ or run with the java cli
 
     java -jar target/delivr-api-1.0-SNAPSHOT.jar
 
-ENV variables required to run are:
-* FLUTTERWAVE_URL: The Flutterwave API's base URL for payment processing
-* CAC_URL: The Nigerian government's Corporate Affairs Commission API's URL for Business/Company verification
+ENV variables required to build successfully are:
 * DB_USER
 * DB_PASSWORD
 * DB_URL
-* JWT_SIGNING_KEY: A 256 bit string
-* API_DOMAIN: This API's domain name
-* MAIL_USERNAME: An SMTP username for mail dispatch
+
+The rest are required when making the associated requests:
+#### For Authentication, OTP and Mail Dispatch
+* MAIL_USERNAME: An SMTP username for mail dispatch. This is required to send OTPs also
 * MAIL_PASSWORD: Password for the SMTP username
+* JWT_SIGNING_KEY: A 256 bit string
+
+#### For Payment processing
+* FLUTTERWAVE_URL: The Flutterwave API's base URL for payment processing
+
+#### For Nigerian Business verification
+* CAC_URL: The Nigerian government's Corporate Affairs Commission API's URL for Business/Company verification
+
+#### For AWS operations
 * AWS_ACCESS_KEY_ID
 * AWS_SECRET_ACCESS_KEY
 * AWS_S3_BUCKET
 * AWS_REGION
+
+#### For SMS operations
 * TWILIO_SID
 * TWILIO_TOKEN
 * TWILIO_FROM: The Sender's phone number
 
 Then Visit: http://localhost:8000/swagger-ui.html
+The 'rider' section is in progress

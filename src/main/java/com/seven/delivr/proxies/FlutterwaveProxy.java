@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 import java.util.UUID;
 
-@FeignClient(name = "flutterwave-api", url = "${FLUTTERWAVE_URL}")
+@FeignClient(name = "flutterwave-api", url = "${FLUTTERWAVE_URL:https://google.com/}")
 public interface FlutterwaveProxy {
     @PostMapping(value = "/subaccounts", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     RaveProxyResponse.RaveSubaccountResponse createSubaccount(@RequestHeader("Authorization") String token, @RequestBody RaveProxyRequest.CreateRaveSubaccountRequest request);

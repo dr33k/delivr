@@ -27,7 +27,6 @@ com\seven\delivr\analytics\AnalyticsService.class
 com\seven\delivr\vendor\VendorRatingRecord.class
 com\seven\delivr\file\FileService.class
 com\seven\delivr\proxies\VendorVerificationProxyRequest.class
-com\seven\delivr\DelivrApiApplication.class
 com\seven\delivr\vendor\VendorService.class
 com\seven\delivr\product\collection\ProductCollectionController.class
 com\seven\delivr\controllers_advice\AppExceptionHandler.class
@@ -47,6 +46,7 @@ com\seven\delivr\base\HelloWorldController.class
 com\seven\delivr\rider\RiderRepository.class
 com\seven\delivr\order\customer\CustomerOrderRepository.class
 com\seven\delivr\proxies\RaveProxyResponse$RaveResponse.class
+com\seven\delivr\DelivrApplication.class
 com\seven\delivr\user\location\LocationController.class
 com\seven\delivr\order\customer\CustomerOrderService.class
 com\seven\delivr\user\location\LocationUpsertRequest.class
